@@ -13,10 +13,10 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
   return (
     <motion.div 
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      className="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow cursor-pointer"
+      className="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow cursor-pointer h-full flex flex-col"
       onClick={onClick}
     >
-      <div className="h-48 bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center text-white text-6xl relative overflow-hidden">
+      <div className="h-48 bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center text-white text-6xl relative overflow-hidden flex-shrink-0">
         {project.image ? (
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -43,11 +43,11 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
           </span>
         </motion.div>
       </div>
-      <div className="p-6">
+      <div className="p-6 flex-1 flex flex-col">
         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
           {project.title}
         </h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+        <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3 flex-1">
           {project.description}
         </p>
         <div className="flex flex-wrap gap-2 mb-4">

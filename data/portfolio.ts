@@ -211,8 +211,9 @@ export const contactInfo: ContactInfo = {
 
 export const personalInfo = {
   name: 'Tomás Edgar Ninán Melo',
-  title: 'Analista de Software | Analista Programador Full Stack',
+  title: 'Ciencias de la Computación | Analista Programador Full Stack',
   bio: 'Analista de Software y Programador Full Stack con sólida trayectoria en el desarrollo de aplicaciones escalables. Especialista en backend con Java (Spring Boot), Python y .Net, y arquitecturas de Microservicios. En el desarrollo moderno, cuento con dominio avanzado de React, Next.js, Angular y Docker, integrando bases de datos como PostgreSQL y Oracle. Experiencia liderando proyectos de Ecommerce (CasaLinda, Topsell) y optimización de plataformas, logrando mejoras significativas en rendimiento y entrega de productos.',
+  shortBio: 'Desarrollador Full Stack especializado en Java, Python y React. Creando soluciones escalables con arquitecturas modernas.',
 };
 
 export const education = [
