@@ -23,20 +23,25 @@ export default function Hero() {
       {/* Contenido */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <motion.h1 
-          initial={{ opacity: 0, y: -30 }}
+          initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 1, ease: "easeOut" }}
           className="text-5xl md:text-7xl font-bold text-white mb-6"
         >
           Hola, soy{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300"
+          >
             {personalInfo.name}
-          </span>
+          </motion.span>
         </motion.h1>
         <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="text-xl md:text-2xl text-gray-100 mb-6"
         >
           {personalInfo.title}
@@ -44,7 +49,7 @@ export default function Hero() {
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
           className="text-base text-gray-300 mb-8"
         >
           📍 {contactInfo.location}
@@ -52,15 +57,15 @@ export default function Hero() {
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
           className="text-lg text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed"
         >
           {personalInfo.shortBio}
         </motion.p>
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <motion.a

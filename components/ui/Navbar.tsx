@@ -6,21 +6,38 @@ import { motion, AnimatePresence } from 'framer-motion';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      // Detectar sección activa
+      const sections = ['hero', 'about', 'projects', 'skills', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'Inicio', href: '#hero' },
-    { name: 'Sobre Mí', href: '#about' },
-    { name: 'Proyectos', href: '#projects' },
-    { name: 'Habilidades', href: '#skills' },
-    { name: 'Contacto', href: '#contact' },
+    { name: 'Inicio', href: '#hero', id: 'hero' },
+    { name: 'Sobre Mí', href: '#about', id: 'about' },
+    { name: 'Proyectos', href: '#projects', id: 'projects' },
+    { name: 'Habilidades', href: '#skills', id: 'skills' },
+    { name: 'Contacto', href: '#contact', id: 'contact' },
   ];
 
   return (
@@ -56,10 +73,19 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.1, color: '#2563eb' }}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                className="relative text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
               >
                 {item.name}
+                {/* Indicador de sección activa */}
+                {activeSection === item.id && (
+                  <motion.div
+                    layoutId="activeSection"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-600 dark:bg-blue-400"
+                    initial={false}
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </motion.a>
             ))}
           </div>
@@ -113,7 +139,11 @@ export default function Navbar() {
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 }}
-                  className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className={`block px-3 py-2 rounded-md transition-colors ${
+                    activeSection === item.id
+                      ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30'
+                      : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400'
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}

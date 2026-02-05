@@ -6,13 +6,13 @@ import { education, certifications, languages, personalInfo } from '@/data/portf
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
+    <section id="about" className="py-20 bg-white dark:bg-gray-900 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2 
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12"
         >
           Sobre Mí
@@ -21,19 +21,27 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Educación */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">📚 Educación</h3>
             {education.map((edu) => (
-              <div key={edu.id} className="mb-6 bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+              <motion.div 
+                key={edu.id} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ scale: 1.02, boxShadow: "0 10px 30px rgba(0,0,0,0.1)" }}
+                transition={{ duration: 0.3 }}
+                className="mb-6 bg-gray-50 dark:bg-gray-800 p-6 rounded-lg cursor-default"
+              >
                 <h4 className="text-xl font-medium text-blue-600 dark:text-blue-400 mb-2">{edu.degree}</h4>
                 <p className="text-lg text-gray-700 dark:text-gray-300 mb-1">{edu.institution}</p>
                 <p className="text-gray-600 dark:text-gray-400">{edu.location}</p>
                 <p className="text-gray-500 dark:text-gray-500 text-sm mt-1">{edu.period}</p>
-              </div>
+              </motion.div>
             ))}
             
             <h3 className="text-2xl font-semibold mb-4 mt-8 text-gray-900 dark:text-white">🌐 Idiomas</h3>
@@ -63,10 +71,10 @@ export default function About() {
 
           {/* Certificaciones */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
           >
             <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">🏆 Certificaciones</h3>
             <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">

@@ -34,10 +34,10 @@ export default function Skills() {
           Habilidades
         </motion.h2>
         <motion.p 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
           className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
         >
           Tecnologías y herramientas con las que trabajo
@@ -46,11 +46,11 @@ export default function Skills() {
           {Object.entries(groupedSkills).map(([category, categorySkills], categoryIndex) => (
             <motion.div 
               key={category} 
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: categoryIndex * 0.15, ease: "easeOut" }}
+              className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 hover:shadow-lg transition-shadow"
             >
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 {categories[category as keyof typeof categories]}

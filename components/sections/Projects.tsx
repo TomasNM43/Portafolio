@@ -30,19 +30,19 @@ export default function Projects() {
       <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2 
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-4"
           >
             Mis Proyectos
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
             className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
           >
             Aquí hay algunos de los proyectos en los que he trabajado recientemente. Haz clic en cada uno para ver más detalles e imágenes.
