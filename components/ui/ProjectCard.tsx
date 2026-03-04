@@ -13,7 +13,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
   return (
     <motion.div 
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      className="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow cursor-pointer h-full flex flex-col"
+      className="rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-shadow cursor-pointer h-full flex flex-col border border-white/20 bg-black/50 backdrop-blur-md"
       onClick={onClick}
     >
       <div className="h-48 bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center text-white text-6xl relative overflow-hidden flex-shrink-0">
@@ -44,30 +44,30 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
         </motion.div>
       </div>
       <div className="p-6 flex-1 flex flex-col">
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+        <h3 className="text-xl font-bold text-white mb-2">
           {project.title}
         </h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3 flex-1">
+        <p className="text-gray-200 mb-4 line-clamp-3 flex-1">
           {project.description}
         </p>
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.slice(0, 3).map((tech) => (
             <span
               key={tech}
-              className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm"
+              className="px-3 py-1 bg-blue-500/30 text-blue-200 rounded-full text-sm border border-blue-400/30"
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > 3 && (
-            <span className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full text-sm">
+            <span className="px-3 py-1 bg-white/20 text-gray-200 rounded-full text-sm border border-white/30">
               +{project.technologies.length - 3}
             </span>
           )}
         </div>
         <motion.button
           whileHover={{ x: 5 }}
-          className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium flex items-center gap-2 group"
+          className="text-blue-400 hover:text-blue-300 font-medium flex items-center gap-2 group"
         >
           <span>Ver más detalles</span>
           <motion.svg 

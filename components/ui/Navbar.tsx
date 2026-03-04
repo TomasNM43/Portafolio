@@ -28,8 +28,8 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 w-full backdrop-blur-sm shadow-md z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white/95 dark:bg-gray-900/95' : 'bg-white/90 dark:bg-gray-900/90'
+      className={`fixed top-0 w-full backdrop-blur-md shadow-md z-50 transition-all duration-300 border-b border-white/20 bg-black/30 ${
+        scrolled ? 'bg-black/40' : 'bg-black/30'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -57,7 +57,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.1, color: '#2563eb' }}
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-white hover:text-blue-400 transition-colors"
               >
                 {item.name}
               </motion.a>
@@ -67,7 +67,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-gray-700 dark:text-gray-300"
+            className="md:hidden text-white"
           >
             <svg
               className="w-6 h-6"
@@ -103,7 +103,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white dark:bg-gray-900 border-t dark:border-gray-800 overflow-hidden"
+            className="md:hidden border-t border-white/20 overflow-hidden"
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item, index) => (
@@ -113,7 +113,7 @@ export default function Navbar() {
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ delay: index * 0.1 }}
-                  className="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="block px-3 py-2 text-white hover:text-blue-400 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.name}

@@ -64,12 +64,12 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="relative bg-white dark:bg-gray-900 rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
+            className="relative rounded-2xl max-w-5xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-white/30 bg-black/70 backdrop-blur-xl"
           >
         {/* Botón Cerrar */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 bg-white dark:bg-gray-800 rounded-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          className="absolute top-4 right-4 z-10 rounded-full p-2 hover:bg-white/20 transition-colors border border-white/30"
           aria-label="Cerrar"
         >
           <svg
@@ -108,7 +108,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             <>
               <button
                 onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full p-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors shadow-lg"
+                className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full p-3 hover:bg-white/20 transition-colors shadow-lg border border-white/30"
                 aria-label="Imagen anterior"
               >
                 <svg
@@ -127,7 +127,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
               </button>
               <button
                 onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 rounded-full p-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors shadow-lg"
+                className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full p-3 hover:bg-white/20 transition-colors shadow-lg border border-white/30"
                 aria-label="Imagen siguiente"
               >
                 <svg
@@ -149,7 +149,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
 
           {/* Miniaturas debajo de la imagen principal */}
           {images.length > 1 && (
-            <div className="bg-gray-100 dark:bg-gray-800 p-4">
+            <div className="p-4 border-t border-white/20">
               <div className="flex gap-3 overflow-x-auto pb-2 justify-center">
                 {images.map((img, index) => (
                   <button
@@ -182,7 +182,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
 
         {/* Contenido del proyecto */}
         <div className="p-8">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl font-bold text-white mb-4">
             {project.title}
           </h2>
 
@@ -190,7 +190,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             {project.technologies.map((tech) => (
               <span
                 key={tech}
-                className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium"
+                className="px-4 py-2 bg-blue-500/30 text-blue-200 rounded-full text-sm font-medium border border-blue-400/30"
               >
                 {tech}
               </span>
@@ -198,7 +198,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
           </div>
 
           <div className="prose dark:prose-invert max-w-none mb-6">
-            <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+            <p className="text-white text-lg leading-relaxed">
               {project.detailedDescription || project.description}
             </p>
           </div>

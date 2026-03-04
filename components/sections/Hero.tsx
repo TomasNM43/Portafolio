@@ -7,18 +7,8 @@ import { contactInfo, personalInfo } from '@/data/portfolio';
 export default function Hero() {
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* Imagen de fondo */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
       {/* Overlay oscuro para mejorar legibilidad */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/90 via-indigo-900/85 to-purple-900/90 dark:from-gray-900/95 dark:via-blue-900/90 dark:to-indigo-900/95 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-indigo-900/30 to-purple-900/40 dark:from-gray-900/50 dark:via-blue-900/40 dark:to-indigo-900/50 z-0" />
       
       {/* Contenido */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
