@@ -30,7 +30,7 @@ export default function Contact() {
     <section id="contact" className="py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2 
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
@@ -39,8 +39,8 @@ export default function Contact() {
           Contáctame
         </motion.h2>
         <motion.p 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center text-white mb-12"
@@ -59,23 +59,35 @@ export default function Contact() {
               Información de Contacto
             </h3>
             <div className="space-y-4">
-              <div className="flex items-center gap-3">
+              <motion.div 
+                className="flex items-center gap-3"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
                 <span className="text-2xl">📧</span>
                 <a href={`mailto:${contactInfo.email}`} className="text-blue-400 hover:text-blue-300 hover:underline">
                   {contactInfo.email}
                 </a>
-              </div>
+              </motion.div>
               {contactInfo.phone && (
-                <div className="flex items-center gap-3">
+                <motion.div 
+                  className="flex items-center gap-3"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <span className="text-2xl">📱</span>
                   <span className="text-white">{contactInfo.phone}</span>
-                </div>
+                </motion.div>
               )}
               {contactInfo.location && (
-                <div className="flex items-center gap-3">
+                <motion.div 
+                  className="flex items-center gap-3"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
                   <span className="text-2xl">📍</span>
                   <span className="text-white">{contactInfo.location}</span>
-                </div>
+                </motion.div>
               )}
             </div>
             <div className="mt-8">
@@ -84,44 +96,44 @@ export default function Contact() {
               </h4>
               <div className="flex gap-4">
                 {contactInfo.social.github && (
-                  <a
+                  <motion.a
                     href={contactInfo.social.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-blue-400"
                   >
                     GitHub
-                  </a>
+                  </motion.a>
                 )}
                 {contactInfo.social.linkedin && (
-                  <a
+                  <motion.a
                     href={contactInfo.social.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-blue-400"
                   >
                     LinkedIn
-                  </a>
+                  </motion.a>
                 )}
                 {contactInfo.social.twitter && (
-                  <a
+                  <motion.a
                     href={contactInfo.social.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-blue-400"
                   >
                     Twitter
-                  </a>
+                  </motion.a>
                 )}
               </div>
             </div>
           </motion.div>
           <motion.form 
             onSubmit={handleSubmit} 
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="space-y-4"
           >
             <div>
@@ -168,9 +180,9 @@ export default function Contact() {
             </div>
             <motion.button
               type="submit"
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.03, boxShadow: "0 10px 30px rgba(37, 99, 235, 0.3)" }}
               whileTap={{ scale: 0.98 }}
-              className="w-full px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              className="w-full px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all font-medium shadow-md"
             >
               Enviar Mensaje
             </motion.button>
