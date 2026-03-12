@@ -20,6 +20,7 @@ export default function Navbar() {
     { name: 'Sobre Mí', href: '#about' },
     { name: 'Proyectos', href: '#projects' },
     { name: 'Habilidades', href: '#skills' },
+    { name: 'Servicios', href: '#services' },
     { name: 'Contacto', href: '#contact' },
   ];
 
@@ -32,7 +33,7 @@ export default function Navbar() {
         scrolled ? 'bg-black/40' : 'bg-black/30'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <motion.a 
             href="#hero"

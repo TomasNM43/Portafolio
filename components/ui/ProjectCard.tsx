@@ -47,7 +47,7 @@ export default function ProjectCard({ project, onClick }: ProjectCardProps) {
         <h3 className="text-xl font-bold text-white mb-2">
           {project.title}
         </h3>
-        <p className="text-gray-200 mb-4 line-clamp-3 flex-1">
+        <p className="text-gray-200 text-lg mb-4 line-clamp-3 flex-1">
           {project.description}
         </p>
         <div className="flex flex-wrap gap-2 mb-4">
