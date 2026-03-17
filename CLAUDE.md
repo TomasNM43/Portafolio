@@ -178,6 +178,14 @@ Cuando se spawne un agente, se le debe pasar su sección correspondiente como co
 - Animaciones: definir solo durations/easings en CSS; la implementación la hace el agente Frontend.
 - Preguntar antes de cambiar paleta de colores o tipografías.
 
+**Plugin — Frontend Design (estética distintiva):**
+- Antes de implementar cualquier interfaz, definir una **dirección estética intencional**: considerar propósito, tono, restricciones técnicas y diferenciación.
+- Elegir una postura estética clara (ej. "brutalismo minimalista", "caos controlado", "elegancia técnica") en lugar de caer en la convención genérica.
+- **Tipografía:** Nohemi y Satoshi ya son elecciones distintivas — mantenerlas. Evitar reemplazarlas por fuentes genéricas (Arial, Inter, system-ui).
+- **Composición visual:** Favorecer layouts con asimetría, solapamiento, flujo diagonal o elementos que rompan la grilla cuando el contexto lo justifique.
+- **Qué evitar:** Esquemas de color genéricos (especialmente gradientes morados/violetas), layouts predecibles sin carácter contextual, paletas que parezcan salidas de una plantilla.
+- El código visual debe ser de calidad de producción y visualmente destacado — no son objetivos en conflicto.
+
 ---
 
 ### Agente 2 — FRONTEND
@@ -209,6 +217,13 @@ Cuando se spawne un agente, se le debe pasar su sección correspondiente como co
 - Respetar los tipos de `types/index.ts` antes de crear interfaces nuevas.
 - Todo componente nuevo va en `components/ui/` (genérico) o `components/sections/` (sección de página).
 - Verificar `npm run build` sin errores antes de considerar una tarea terminada.
+
+**Plugin — Frontend Design (implementación de calidad de producción):**
+- Antes de codear un componente nuevo, establecer la **dirección estética** del mismo: ¿qué sensación debe transmitir? ¿cómo se diferencia del resto?
+- El movimiento (Framer Motion), el espaciado y los detalles atmosféricos deben **servir a la visión estética**, no ser decoración aleatoria.
+- Ajustar la complejidad del código a la visión: diseños maximalistas justifican código elaborado; diseños minimalistas requieren precisión y contención.
+- Evitar componentes que parezcan "generados por IA": fondos con gradiente azul-morado, cards con sombra genérica, layouts de 3 columnas sin intención.
+- El resultado final debe ser **visualmente llamativo Y funcionalmente correcto** — ambos son requisitos, no opcionales.
 
 ---
 
