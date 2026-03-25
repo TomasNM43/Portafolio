@@ -10,11 +10,23 @@ const brands = [
   { name: 'Yobel', logo: '/marcas/yobel.png' },
 ];
 
-const loopedBrands = [...brands, ...brands];
+// Duplicamos 4 veces para garantizar cobertura visual completa sin cortes
+const loopedBrands = [...brands, ...brands, ...brands, ...brands];
 
 export default function Brands() {
   return (
     <section className="py-20 overflow-hidden">
+      <style>{`
+        @keyframes brands-marquee {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .brands-track {
+          animation: brands-marquee 22s linear infinite;
+          will-change: transform;
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -48,19 +60,10 @@ export default function Brands() {
           style={{ background: 'linear-gradient(to left, rgba(0,0,0,0.6), transparent)' }}
         />
 
-        {/* Track animado */}
-        <motion.div
-          className="flex items-center gap-16"
+        {/* Track animado con CSS puro — infinito y sin cortes */}
+        <div
+          className="brands-track flex items-center gap-16"
           style={{ width: 'max-content' }}
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: 'loop',
-              duration: 22,
-              ease: 'linear',
-            },
-          }}
         >
           {loopedBrands.map((brand, index) => (
             <div
@@ -74,7 +77,7 @@ export default function Brands() {
               />
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
